@@ -164,6 +164,18 @@
     transform:          translate($x, $y);
 }
 
+// Mixin for retina images from: https://gist.github.com/twe4ked/1432554
+@mixin background-image-retina($file, $type, $width, $height) {
+  background-image: url($file + '.' + $type);
+
+  @media (-webkit-min-device-pixel-ratio: 2), (-moz-min-device-pixel-ratio: 2) {
+    & {
+      background-image: url($file + '@2x.' + $type);
+      -webkit-background-size: $width $height;
+    }
+  }
+}
+
 @mixin pictonic {
     @font-face {
         font-family: "pictonic";
