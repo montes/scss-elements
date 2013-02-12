@@ -6,14 +6,13 @@
 // ---------------------------------------------------
 @charset "UTF-8";
 
-@mixin mon-gradient($from, $to) {
+@mixin mon-gradient($from, $to, $orientation:top) {
     background: $from; /* Old browsers */
-    background: -moz-linear-gradient(top,  $from 31%, $to 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(31%, $from), color-stop(100%, $to)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, $from 31%, $to 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, $from 31%, $to 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, $from 31%, $to 100%); /* IE10+ */
-    background: linear-gradient(top, $from 31%, $to 100%); /* W3C */
+    background: -moz-linear-gradient($orientation,  $from 31%, $to 100%); /* FF3.6+ */
+    background: -webkit-linear-gradient($orientation, $from 31%, $to 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient($orientation, $from 31%, $to 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient($orientation, $from 31%, $to 100%); /* IE10+ */
+    background: linear-gradient($orientation, $from 31%, $to 100%); /* W3C */
     filter:     progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr='#{$to}', GradientType=0); /* IE6-9 */
 }
 
@@ -196,6 +195,23 @@
     small.pictonic {
         display: -moz-inline-stack;
         display: inline-block;
+        zoom: 1;
+        *display: inline;
+    }
+
+    [class^="icon-"], [class*=" icon-"]
+    {
+        font-family: "pictonic";
+        font-weight: normal; font-style: normal;
+        -webkit-font-smoothing:  subpixel-antialiased;
+        -moz-font-smoothing:  subpixel-antialiased;
+        font-smoothing:  subpixel-antialiased;
+        line-height:1em;
+    }
+
+    a[class^="icon-"], a[class*=" icon-"], span[class^="icon-"], span[class*=" icon-"], small[class^="icon-"], small[class*=" icon-"] {
+        display: -moz-inline-stack;
+        display:inline-block;
         zoom: 1;
         *display: inline;
     }
